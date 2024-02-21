@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
 }
-#services,#features,#clients,#counts,#pricing,#faq,.dropdown,#faq{
+#services,#features,#clients,#counts,#pricing,#faq,.dropdown,#faq,.social-links{
     display:none;
 }
 .about .content .btn-learn-more{
@@ -18,4 +18,9 @@
     flex-grow: 0;
     width: 30%;
     text-align: center;
+}
+.contact .info {
+    width: 100%;
+    background: #0f0f0f;
+   
 }
