@@ -27,6 +27,10 @@
     background: #0f0f0f;
    
 }
-#footer{
+#footer,.about__quote{
     color:#ffb400;
+}
+.section-title p.about__quote{
+    color:#ffb400;
+    font-style: italic;
 }
