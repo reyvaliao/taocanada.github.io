@@ -10,6 +10,9 @@
     flex-direction: column;
     justify-content: center;
 }
+.about__vision{
+    padding-bottom:20px;
+}
 #services,#features,#clients,#counts,#pricing,#faq,.dropdown,#faq,.social-links{
     display:none;
 }
