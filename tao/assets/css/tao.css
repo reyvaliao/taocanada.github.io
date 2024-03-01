@@ -19,7 +19,7 @@ body{
     background:none;
 }
 .hero-waves{
-    transform: rotateX(180deg) translateY(-70px);
+    transform: rotateX(180deg) translateY(-104px);
 }
 .section-title p{
     color: #ffb400
@@ -66,7 +66,7 @@ body{
 }
 
 #portfolio-details{
-    margin-top: 80px;
+    margin-top: 40px;
 }
 .card-img-top{
     height: 180px;
@@ -109,4 +109,15 @@ body{
 }
 #hero h2 {
     color: #ffb400;
+}
+#header {
+height: auto;
+}
+#header .logo {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 12px 0px;
+    img {
+        max-height: 80px;
+    }
 }
