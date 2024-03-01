@@ -1,0 +1,70 @@
+body{
+    background-color: black!important;
+    background:url("./../img/tgp-tgs.png")  repeat;
+}
+.table{
+    background-color: #444444;
+    color: #fff;
+
+}
+.portal-btn{
+    background: #ef6603;
+    cursor: pointer;
+}
+.table th{
+    background: #ef6603;
+    color:#fff;
+}
+#hero{
+    background:none;
+}
+.hero-waves{
+    transform: rotateX(180deg) translateY(-70px);
+}
+.section-title p{
+    color: #ef6603
+}
+#testimonials,#pricing,.php-email-form,#faq,#breadcrumbs{
+    display: none;
+}
+.contact .info {
+    background: none;
+    color: #ef6603;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    div {
+        margin-bottom:15px;
+    }
+}
+.contact .info i:hover {
+    background-color: #ef6603;
+    color: #ffecde;
+}
+.contact .info i:hover {
+    color: #ef6603;
+    background: #ffecde;
+}
+.contact .info p,.contact .info h4 {
+    color: #ef6603;
+}
+#footer .containter h3{
+    color: #ef6603;
+}
+.contact .info .email, .contact .info .phone {
+    margin-top: 0px;
+}
+
+@media only screen 
+  and (min-device-width: 768px){ 
+    .contact .info {
+      
+        flex-direction: row;
+      
+    }
+
+}
+
+#portfolio-details{
+    margin-top: 80px;
+}
