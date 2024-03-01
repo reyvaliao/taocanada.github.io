@@ -8,11 +8,11 @@ body{
 
 }
 .portal-btn{
-    background: #ef6603;
+    background: #ffb400;
     cursor: pointer;
 }
 .table th{
-    background: #ef6603;
+    background: #ffb400;
     color:#fff;
 }
 #hero{
@@ -22,14 +22,14 @@ body{
     transform: rotateX(180deg) translateY(-70px);
 }
 .section-title p{
-    color: #ef6603
+    color: #ffb400
 }
 #testimonials,#pricing,.php-email-form,#faq,#breadcrumbs,.table{
     display: none;
 }
 .contact .info {
     background: none;
-    color: #ef6603;
+    color: #ffb400;
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
@@ -38,18 +38,18 @@ body{
     }
 }
 .contact .info i:hover {
-    background-color: #ef6603;
+    background-color: #ffb400;
     color: #ffecde;
 }
 .contact .info i:hover {
-    color: #ef6603;
+    color: #ffb400;
     background: #ffecde;
 }
 .contact .info p,.contact .info h4 {
-    color: #ef6603;
+    color: #ffb400;
 }
 #footer .containter h3{
-    color: #ef6603;
+    color: #ffb400;
 }
 .contact .info .email, .contact .info .phone {
     margin-top: 0px;
@@ -90,7 +90,7 @@ body{
     font-size: 14px;
     font-weight: bold;
     label{
-        color: #ef6603;
+        color: #ffb400;
         font-weight: normal;
     }
 }
@@ -106,4 +106,7 @@ body{
 }
 .contact .officer p{
     padding: 0px;
+}
+#hero h2 {
+    color: #ffb400;
 }
