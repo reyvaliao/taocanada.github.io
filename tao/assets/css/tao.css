@@ -1,6 +1,9 @@
 body{
-    background-color: black!important;
-    background:url("./../img/tgp-tgs.png")  repeat;
+    background-color: rgb(17, 17, 17)!important;
+    /* background:url("./../img/tgp-tgs.png")  repeat; */
+}
+.hero1{
+    background: url("./../img/portfolio/event-1.jpg");
 }
 .table{
     background-color: #444444;
