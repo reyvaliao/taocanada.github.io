@@ -62,6 +62,7 @@ const members = [
     "use strict";
     // const tableEl = document.querySelector("#membersTpl")
     // members.forEach(createRow)
+    // document.querySelector(".members table").classList.add('show')
     // createRow(['foo', 'bar'])
 
 })();
@@ -88,7 +89,8 @@ function handleCredentialResponse(googleUser) {
     console.log("Email: " + responsePayload.email);
     if (responsePayload.name) {
         const tableEl = document.querySelector("#membersTpl")
-        members.forEach(createRow)
+        members.forEach(createRow);
+        document.querySelector(".members table").classList.add('show')
     } else {
         document.querySelector(".members .col-lg-12").textContent("You need to login")
 

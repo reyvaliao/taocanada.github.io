@@ -135,9 +135,17 @@ height: auto;
     display: flex;
     /* justify-content: center; */
     table{
+        display: none;
+        &.show{
+            display: inline-table;
+        }
         th{
             color: #ffb400;
         }
+        width:100%;
+    }
+    table.show{
+        display: inline-table;
         width:100%;
     }
 }
