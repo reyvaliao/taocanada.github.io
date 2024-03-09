@@ -30,7 +30,14 @@ body{
 #testimonials,#pricing,.php-email-form,#faq,#breadcrumbs,.table{
     display: none;
 }
+.officer-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
 .contact .info {
+    flex: 100%;
     background: none;
     color: #ffb400;
     /* display: flex;
@@ -61,7 +68,7 @@ body{
 @media only screen 
   and (min-device-width: 768px){ 
     .contact .info {
-      
+      flex:50%;
         /* flex-direction: row; */
       
     }
