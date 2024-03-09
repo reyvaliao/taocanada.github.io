@@ -86,6 +86,13 @@ function handleCredentialResponse(googleUser) {
     console.log('Family Name: ' + responsePayload.family_name);
     console.log("Image URL: " + responsePayload.picture);
     console.log("Email: " + responsePayload.email);
+    if (responsePayload.name) {
+        const tableEl = document.querySelector("#membersTpl")
+        members.forEach(createRow)
+    } else {
+        document.querySelector(".members .col-lg-12").textContent("You need to login")
+
+    }
 }
 function signOut() {
 
