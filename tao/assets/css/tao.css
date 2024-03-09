@@ -124,3 +124,22 @@ height: auto;
         max-height: 80px;
     }
 }
+.members{
+    display: flex;
+    /* justify-content: center; */
+    table{
+        th{
+            color: #ffb400;
+        }
+        width:60%
+    }
+}
+#membersTpl{
+    tr {
+        border-bottom: 1px #ffb400 solid;
+        padding:5px ;
+        &:last-child{
+            border-bottom:none;
+        }
+    }
+}
