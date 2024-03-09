@@ -60,8 +60,8 @@ const members = [
 ];
 (function () {
     "use strict";
-    const tableEl = document.querySelector("#membersTpl")
-    members.forEach(createRow)
+    // const tableEl = document.querySelector("#membersTpl")
+    // members.forEach(createRow)
     // createRow(['foo', 'bar'])
 
 })();
