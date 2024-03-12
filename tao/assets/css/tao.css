@@ -22,7 +22,7 @@ body{
     background:none;
 }
 .foo{
-    transform: translateY(104px);
+    transform: translate(0%, 104px);
     width: 100%;
 }
 .hero-waves{
