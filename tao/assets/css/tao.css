@@ -23,6 +23,7 @@ body{
 }
 .foo{
     transform: translate(0%, 104px);
+    -webkit-transform: translate(0%, 104px);
     width: 100%;
 }
 .hero-waves{
