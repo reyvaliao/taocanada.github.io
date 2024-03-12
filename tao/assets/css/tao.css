@@ -22,7 +22,7 @@ body{
     background:none;
 }
 .hero-waves{
-    transform: translateY(104px) rotateX(180deg);
+    transform: translateY(0px) rotateX(180deg);
     /* transform: rotateX(180deg) translateY(-104px);
     -webkit-transform: rotateX(180deg) translateY(-104px);
     -moz-transform:rotateX(180deg) translateY(-104px); */
