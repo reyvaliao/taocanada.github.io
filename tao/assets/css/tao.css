@@ -22,9 +22,10 @@ body{
     background:none;
 }
 .hero-waves{
-    transform: rotateX(180deg) translateY(-104px);
+    transform: translateY(104px) rotateX(180deg);
+    /* transform: rotateX(180deg) translateY(-104px);
     -webkit-transform: rotateX(180deg) translateY(-104px);
-    -moz-transform:rotateX(180deg) translateY(-104px);
+    -moz-transform:rotateX(180deg) translateY(-104px); */
 }
 .section-title p{
     color: #ffb400
