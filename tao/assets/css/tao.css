@@ -21,9 +21,12 @@ body{
 #hero{
     background:none;
 }
+.foo{
+    transform: translateY(104px);
+}
 .hero-waves{
-    transform: translateY(104px) rotateX(180deg);
-    -webkit-transform: translateY(104px) rotateX(180deg);
+    transform: rotateX(180deg);
+    /* -webkit-transform: translateY(104px) rotateX(180deg); */
     /* transform: rotateX(180deg) translateY(-104px);
 
     -moz-transform:rotateX(180deg) translateY(-104px); */
