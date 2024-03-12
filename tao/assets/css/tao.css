@@ -23,6 +23,7 @@ body{
 }
 .foo{
     transform: translateY(104px);
+    width: 100%;
 }
 .hero-waves{
     transform: rotateX(180deg);
