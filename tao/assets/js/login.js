@@ -9,22 +9,44 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
     // const tableEl = document.querySelector("#membersTpl")
     // members.forEach(createRow);
     // document.querySelector(".members table").classList.add('show')
+    document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
+        e.preventDefault()
+        document.querySelector('.error-message').style.display = "none"
+        const email = document.querySelector('form').elements[0].value
+        const password = document.querySelector('form').elements[1].value
 
-    const token = document.cookie.split(';')[0]
-    const tokenValue = token.split("=")[1]
-    if (token.split("=")[0] === 'token') {
-        getMembers(tokenValue).then((data) => {
+
+        login(email, password).then((data) => {
+            console.log(data)
             if (data.code === 200) {
-                const tableEl = document.querySelector("#membersTpl")
-                data.msg.forEach(createRow);
-                document.querySelector(".members table").classList.add('show')
+                document.cookie = "token=" + data.msg;
+                window.location.href = './members-restricted.html'
+
             } else {
-                document.querySelector(".notLoggedIn").style.display = "block";
+                document.querySelector('.error-message').textContent = "Username and Password is incorrect"
+                document.querySelector('.error-message').style.display = "block"
             }
         })
-    }
-})();
 
+    })
+})();
+async function login(email, password) {
+
+    const response = await fetch('http://localhost:8080/login', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        // mode: "cors", // no-cors, *cors, same-origin
+        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        // credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({ email: email, password: password }), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
 function createRow(member) {
     const rowEl = document.createElement("tr")
     const nameEl = document.createElement("td")
@@ -43,7 +65,6 @@ function createRow(member) {
 
 }
 function handleCredentialResponse(googleUser) {
-
     const responsePayload = decodeJwtResponse(googleUser.credential);
 
     console.log("ID: " + responsePayload.sub);
@@ -77,21 +98,4 @@ function decodeJwtResponse(token) {
 
     return JSON.parse(jsonPayload);
 }
-
-async function getMembers(token) {
-
-    const response = await fetch('http://localhost:8080/api/users', {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        // mode: "cors", // no-cors, *cors, same-origin
-        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        // credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            token: token
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
+// 
