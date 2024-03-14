@@ -13,15 +13,23 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
     const token = document.cookie.split(';')[0]
     const tokenValue = token.split("=")[1]
     if (token.split("=")[0] === 'token') {
-        getMembers(tokenValue).then((data) => {
-            if (data.code === 200) {
-                const tableEl = document.querySelector("#membersTpl")
-                data.msg.forEach(createRow);
-                document.querySelector(".members table").classList.add('show')
-            } else {
-                document.querySelector(".notLoggedIn").style.display = "block";
-            }
-        })
+        const isGoogle = decodeJwtResponse(tokenValue)
+        if (isGoogle.name) {
+            const tableEl = document.querySelector("#membersTpl")
+            members.forEach(createRow);
+            document.querySelector(".members table").classList.add('show')
+        } else {
+            getMembers(tokenValue).then((data) => {
+                if (data.code === 200) {
+                    const tableEl = document.querySelector("#membersTpl")
+                    data.msg.forEach(createRow);
+                    document.querySelector(".members table").classList.add('show')
+                } else {
+                    document.querySelector(".notLoggedIn").style.display = "block";
+                }
+            })
+        }
+
     }
 })();
 
