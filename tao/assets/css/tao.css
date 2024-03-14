@@ -59,6 +59,13 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    >.card {
+        margin-bottom: 20px;
+    }
+
 
 }
 

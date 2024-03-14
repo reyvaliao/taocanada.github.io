@@ -5,9 +5,94 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-(function() {
+const officers = [
+  {
+    name: 'Dexter Godenez',
+    position: 'Chairman',
+    image: 'dex.jpg'
+  }, {
+    name: 'Ronnie Madelo Dioneda',
+    position: 'Vice Chairman',
+    image: 'ronnie.jpg'
+  }, {
+    name: 'Ferdinand Pacis',
+    position: 'Secretary',
+    image: 'ferdi.jpg'
+  }, {
+    name: 'Reynaldo Valiao',
+    position: 'Director of Membership',
+    image: 'boy.jpg'
+  }, {
+    name: 'Thed Bulado',
+    position: 'Asst. Director of Membership',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Joel Prudencio',
+    position: 'Asst. Director of Membership',
+    image: 'thed.jpg'
+  }, {
+    name: 'Lucila De Ocampo',
+    position: 'Treasurer',
+    image: 'lucy.jpg'
+  }, {
+    name: 'Roelle Manangkil',
+    position: 'Asst. Treasurer',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Ronnie Vital',
+    position: 'Auditor',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Bing Agana',
+    position: 'Fund Raising Coordinator',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Macky Julian',
+    position: 'Sports & Events Coordinator',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Jonathan Simbahan',
+    position: 'Asst. Sports & Events Coordinator',
+    image: 'Default-officer.jpg'
+  }, {
+    name: 'Eujen Ayeng',
+    position: 'Media & Documentation Coordinator',
+    image: 'Default-officer.jpg'
+  },
+]
+
+function createOfficer(officer) {
+
+  const cardEl = document.createElement("div")
+  cardEl.classList.add('card')
+
+  const imgEl = document.createElement("img")
+  imgEl.src = "./assets/img/officers/" + officer.image;
+  imgEl.classList.add('card-img-top')
+
+  const cardBodyEl = document.createElement("div")
+  cardBodyEl.classList.add('card-body')
+
+  const nameEl = document.createElement("h5")
+  nameEl.textContent = officer.name
+
+  const positionEl = document.createElement("h6")
+  positionEl.textContent = officer.position
+
+
+  cardBodyEl.appendChild(nameEl)
+  cardBodyEl.appendChild(positionEl)
+  cardEl.appendChild(imgEl);
+  cardEl.appendChild(cardBodyEl)
+  const officerEl = document.querySelector(".officer-section")
+
+  officerEl.appendChild(cardEl)
+}
+(function () {
   "use strict";
 
+  //populate officers
+  officers.forEach(createOfficer);
   /**
    * Easy selector helper function
    */
@@ -110,7 +195,7 @@
   /**
    * Mobile nav toggle
    */
-  on('click', '.mobile-nav-toggle', function(e) {
+  on('click', '.mobile-nav-toggle', function (e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
@@ -119,7 +204,7 @@
   /**
    * Mobile nav dropdowns activate
    */
-  on('click', '.navbar .dropdown > a', function(e) {
+  on('click', '.navbar .dropdown > a', function (e) {
     if (select('#navbar').classList.contains('navbar-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
@@ -129,7 +214,7 @@
   /**
    * Scrool with ofset on links with a class name .scrollto
    */
-  on('click', '.scrollto', function(e) {
+  on('click', '.scrollto', function (e) {
     if (select(this.hash)) {
       e.preventDefault()
 
@@ -167,9 +252,9 @@
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#portfolio-flters li', function (e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        portfolioFilters.forEach(function (el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
@@ -177,7 +262,7 @@
         portfolioIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        portfolioIsotope.on('arrangeComplete', function () {
           AOS.refresh()
         });
       }, true);
