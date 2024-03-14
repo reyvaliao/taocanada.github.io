@@ -237,6 +237,11 @@ body {
     color: #fff;
 }
 
+.g_id_signin{
+    display: flex;
+    justify-content: center;
+}
+
 .login-email-form {
     width: 100%;
     min-height: 350px;
