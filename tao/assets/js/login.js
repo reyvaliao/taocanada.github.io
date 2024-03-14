@@ -66,21 +66,22 @@ function createRow(member) {
 }
 function handleCredentialResponse(googleUser) {
     const responsePayload = decodeJwtResponse(googleUser.credential);
+    document.cookie = "token=" + googleUser.credential;
+    window.location.href = './members-restricted.html'
+    // console.log("ID: " + responsePayload.sub);
+    // console.log('Full Name: ' + responsePayload.name);
+    // console.log('Given Name: ' + responsePayload.given_name);
+    // console.log('Family Name: ' + responsePayload.family_name);
+    // console.log("Image URL: " + responsePayload.picture);
+    // console.log("Email: " + responsePayload.email);
+    // if (responsePayload.name) {
+    //     const tableEl = document.querySelector("#membersTpl")
+    //     members.forEach(createRow);
+    //     document.querySelector(".members table").classList.add('show')
+    // } else {
+    //     document.querySelector(".members .col-lg-12").textContent("You need to login")
 
-    console.log("ID: " + responsePayload.sub);
-    console.log('Full Name: ' + responsePayload.name);
-    console.log('Given Name: ' + responsePayload.given_name);
-    console.log('Family Name: ' + responsePayload.family_name);
-    console.log("Image URL: " + responsePayload.picture);
-    console.log("Email: " + responsePayload.email);
-    if (responsePayload.name) {
-        const tableEl = document.querySelector("#membersTpl")
-        members.forEach(createRow);
-        document.querySelector(".members table").classList.add('show')
-    } else {
-        document.querySelector(".members .col-lg-12").textContent("You need to login")
-
-    }
+    // }
 }
 function signOut() {
 
