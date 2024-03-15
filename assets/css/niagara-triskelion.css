@@ -34,3 +34,16 @@
     color:#ffb400;
     font-style: italic;
 }
+.contact .php-email-form {
+    margin-top: 20px;
+    background: #ffffff00;
+    min-height: 400px;
+}
+.register-form{
+    display: none;
+}
+.btn.gmail{
+    background-color: #fff;
+    color:#ff0000;
+  }
+  

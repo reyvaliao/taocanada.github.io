@@ -1,0 +1,175 @@
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800");
+
+:root {
+    --blue: #3366ff;
+    --indigo: #5b47fb;
+    --purple: #6f42c1;
+    --pink: #f10075;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #3bb001;
+    --teal: #00cccc;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #7987a1;
+    --gray-dark: #3b4863;
+    --primary: #3366ff;
+    --secondary: #7987a1;
+    --success: #3bb001;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f4f5f8;
+    --dark: #3b4863;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box; }
+  
+  html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  
+  article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block; }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #031b4e;
+    text-align: left;
+    background-color: #fff; }
+.az-card-signin {
+    height: 560px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.5); }
+    @media (min-width: 480px) {
+      .az-card-signin {
+        border: 1px solid #cdd4e0;
+        width: 360px;
+        padding: 30px 35px; } }
+  
+  .az-signin-header h2 {
+    font-weight: 500;
+    color: #5b47fb;
+    letter-spacing: -1px; }
+  
+  .az-signin-header h4 {
+    font-weight: 400;
+    color: #1c273c;
+    margin-bottom: 25px; }
+  
+  .az-signin-header label {
+    color: #7987a1; }
+  
+  .az-signin-header .form-control {
+    color: #1c273c;
+    font-weight: 500;
+    border-width: 2px;
+    border-color: #cdd4e0; 
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #cdd4e0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    .az-signin-header .form-control:focus {
+      border-color: #b4bdce;
+      box-shadow: none; }
+    .az-signin-header .form-control::placeholder {
+      font-weight: 400;
+      color: #97a3b9; }
+  
+  .az-signin-header .btn {
+    margin-top: 25px; }
+  
+  .az-signin-footer p {
+    color: #7987a1; }
+    .az-signin-footer p:first-child {
+      margin-bottom: 5px; }
+    .az-signin-footer p:last-child {
+      margin-bottom: 0; }
+  
+  .az-signin-footer a {
+    color: #1c273c;
+    font-weight: 700; }
+    .az-signin-footer a:hover, .az-signin-footer a:focus {
+      color: #5b47fb; }
+  
+
+      .login-form{
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 16px;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        margin-bottom: 20px;
+        
+      }
+      .submit-form{
+        text-align: right;
+        margin-top: 25px
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    .az-signin-header label {
+        color: #7987a1;
+    }
+    label {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+    #login-falied {
+        color: #fff;
+        background-color: var(--red);
+        padding: 0.5rem 0rem;
+        text-align: center;
+        display:none;
+    }
+
+    .login-footer {
+        color: #7987a1;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+    ul{
+        display: flex;
+    }
+    li {
+        list-style: none;
+        flex-direction: row;
+        display: flex;
+        margin-left: 10px;
+    }
