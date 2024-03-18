@@ -342,6 +342,7 @@ body {
     height: 70vh;
     padding-top: 60px;
     flex-wrap: wrap;
+    height: 90vh;
 }
 .banner-img{
     flex:1 1 10%;
