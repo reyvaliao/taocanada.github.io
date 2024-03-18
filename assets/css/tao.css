@@ -343,11 +343,14 @@ body {
     padding-top: 20px;
     flex-wrap: wrap;
     height: 90vh;
+    flex:1;
 }
 .banner-img{
     flex:1 1 10%;
     justify-content: center;
     display: flex;
+
+    align-self: center;
 }
 #hero .banner-text{
     justify-content: center;
@@ -355,6 +358,7 @@ body {
     flex-direction: column;
     flex:2;
     text-align: left;
+    min-width: 200px;
     p{
         text-align: left;
         margin:0;
