@@ -339,8 +339,8 @@ body {
     flex-direction: row;
     text-align: left;
     position: relative;
-    height: 70vh;
-    padding-top: 60px;
+
+    padding-top: 20px;
     flex-wrap: wrap;
     height: 90vh;
 }
