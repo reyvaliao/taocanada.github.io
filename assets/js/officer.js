@@ -18,11 +18,11 @@ const officers = [
     }, {
         name: 'Thed Bulado',
         position: 'Asst. Director of Membership',
-        image: 'Default-officer.jpg'
+        image: 'thed.jpg'
     }, {
         name: 'Joel Prudencio',
         position: 'Asst. Director of Membership',
-        image: 'thed.jpg'
+        image: 'joel.jpg'
     }, {
         name: 'Lucila De Ocampo',
         position: 'Treasurer',
@@ -30,27 +30,27 @@ const officers = [
     }, {
         name: 'Roelle Manangkil',
         position: 'Asst. Treasurer',
-        image: 'Default-officer.jpg'
+        image: 'roelle.jpg'
     }, {
         name: 'Ronnie Vital',
         position: 'Auditor',
-        image: 'Default-officer.jpg'
+        image: 'ronniev.jpg'
     }, {
         name: 'Bing Agana',
         position: 'Fund Raising Coordinator',
-        image: 'Default-officer.jpg'
+        image: 'bing.jpg'
     }, {
         name: 'Macky Julian',
         position: 'Sports & Events Coordinator',
-        image: 'Default-officer.jpg'
+        image: 'macky.jpg'
     }, {
         name: 'Jonathan Simbahan',
         position: 'Asst. Sports & Events Coordinator',
-        image: 'Default-officer.jpg'
+        image: 'jonathan.jpg'
     }, {
         name: 'Eujen Ayeng',
         position: 'Media & Documentation Coordinator',
-        image: 'Default-officer.jpg'
+        image: 'eujeny.png'
     },
 ]
 function createOfficer(officer) {

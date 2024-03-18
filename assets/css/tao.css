@@ -331,3 +331,30 @@ body {
 .notLoggedIn {
     display: none;
 }
+
+.carousel-container__img{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    flex-direction: row;
+    text-align: left;
+    position: relative;
+    height: 70vh;
+    padding-top: 60px;
+    flex-wrap: wrap;
+}
+.banner-img{
+    flex:1 1 10%;
+    justify-content: center;
+    display: flex;
+}
+#hero .banner-text{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex:2;
+    text-align: left;
+    p{
+        text-align: left;
+    }
+}
