@@ -365,3 +365,56 @@ body {
         width: 100%;
     }
 }
+#personal_information,#fraternal_information{
+    padding:10px 0px;
+    p{
+        color: #ffb400;
+        margin: 0;
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: "Poppins", sans-serif;
+    }
+    .form-control.is-invalid::placeholder{
+        color: red;
+    }
+    
+}
+#personal_information .form-group,
+#fraternal_information .form-group{
+    padding-bottom: 8px;
+    label{
+        margin:10px 0px 5px 0px;
+    }
+}
+#fraternal_information{
+    margin-top: 40px;;
+}
+#registration-details{
+    button[type=submit] {
+        background: #ef6603;
+        border: 0;
+        padding: 10px 24px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .loading{
+        display: none;
+    }
+    .sent-message{
+        display: none;
+    color: #fff;
+    background: #18d26e;
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+    }
+    .error-message{
+        background: red;
+        padding: 15px;
+        font-weight: 600;
+    }
+}
