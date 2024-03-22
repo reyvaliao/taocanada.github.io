@@ -9,38 +9,62 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
     // const tableEl = document.querySelector("#membersTpl")
     // members.forEach(createRow);
     // document.querySelector(".members table").classList.add('show')
+    let isLoggedin = false;
 
-    const token = document.cookie.split(';')[0]
-    const tokenValue = token.split("=")[1]
-    if (token.split("=")[0] === 'token') {
-        const isGoogle = decodeJwtResponse(tokenValue)
+    const token = document.cookie.split(';').find(value => value.includes('oken'))
+    if (!token) {
+        window.location.href = './login.html'
+    }
+    isLoggedin = true;
+    document.querySelector('.portal-btn').textContent = "Logout"
+
+    document.querySelector('.portal-btn').addEventListener('click', function () {
+        if (isLoggedin) {
+            const cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+            window.location.href = './index-bk.html';
+        } else {
+            window.location.href = './login.html';
+        }
+    })
+    const name = window.atob(token.substring(6)).split('-')[0]
+    document.querySelector('#loggedInUser').textContent = name + " "
+    const tokenValue = token.substring(7)
+    if (tokenValue.split('.')[1]) {
+        const isGoogle = decodeJwtResponse(tokenValue.split(',')[1])
         if (isGoogle.name) {
             const tableEl = document.querySelector("#membersTpl")
             members.forEach(createRow);
             document.querySelector(".members table").classList.add('show')
-        } else {
-            getMembers(tokenValue).then((data) => {
-                if (data.code === 200) {
-                    const tableEl = document.querySelector("#membersTpl")
-                    data.msg.forEach(createRow);
-                    document.querySelector(".members table").classList.add('show')
-                } else {
-                    document.querySelector(".notLoggedIn").style.display = "block";
-                }
-            })
         }
 
+    } else {
+        getMembers(token.substring(6)).then((data) => {
+            if (data.code === 200) {
+                const tableEl = document.querySelector("#membersTpl")
+                data.msg.forEach(createRow);
+                document.querySelector(".members table").classList.add('show')
+            } else {
+                document.querySelector(".notLoggedIn").style.display = "block";
+            }
+        })
     }
 })();
 
 function createRow(member) {
     const rowEl = document.createElement("tr")
     const nameEl = document.createElement("td")
-    nameEl.textContent = member.Name
+    nameEl.textContent = member.name
     const numberEl = document.createElement("td")
-    numberEl.textContent = member.number
+    numberEl.textContent = member.email
     const dateEl = document.createElement("td")
-    dateEl.textContent = member.date
+    dateEl.textContent = member.dateArrived
 
     rowEl.appendChild(nameEl)
     rowEl.appendChild(numberEl)
@@ -88,7 +112,7 @@ function decodeJwtResponse(token) {
 
 async function getMembers(token) {
 
-    const response = await fetch('http://localhost:8080/api/users', {
+    const response = await fetch('http://localhost:8080/api/members', {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

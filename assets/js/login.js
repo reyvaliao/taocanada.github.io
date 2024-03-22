@@ -16,6 +16,25 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
     // const tableEl = document.querySelector("#membersTpl")
     // members.forEach(createRow);
     // document.querySelector(".members table").classList.add('show')
+    let isLoggedin = false;
+
+    const token = document.cookie.split(';').find(value => value.includes('oken'))
+    if (token) {
+        isLoggedin = true
+        const name = window.atob(token.substring(6)).split('-')[0];
+        window.location.href = './index-bk.html';
+
+
+    }
+    document.querySelector('.portal-btn').addEventListener('click', function () {
+        if (isLoggedin) {
+            document.cookie = "";
+            window.location.href = './index.html';
+        } else {
+            window.location.href = './login.html';
+        }
+    })
+
     document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
         e.preventDefault()
         document.querySelector('.error-message').style.display = "none"
@@ -57,11 +76,11 @@ async function login(email, password) {
 function createRow(member) {
     const rowEl = document.createElement("tr")
     const nameEl = document.createElement("td")
-    nameEl.textContent = member.Name
+    nameEl.textContent = member.name
     const numberEl = document.createElement("td")
-    numberEl.textContent = member.number
+    numberEl.textContent = member.email
     const dateEl = document.createElement("td")
-    dateEl.textContent = member.date
+    dateEl.textContent = member.dateArrived
 
     rowEl.appendChild(nameEl)
     rowEl.appendChild(numberEl)

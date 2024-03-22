@@ -69,6 +69,32 @@ function checkForms() {
     }
 }
 (function () {
+    const token = document.cookie.split(';').find(value => value.includes('token'))
+
+    const name = window.atob(token.substring(7)).split('-')[0]
+    let login = false;
+    if (name) {
+        login = true;
+        document.querySelector('.portal-btn').textContent = 'Logout'
+
+
+    }
+    document.querySelector('.portal-btn').addEventListener('click', function () {
+        if (login) {
+            const cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+            window.location.href = './index.html';
+        } else {
+            window.location.href = './login.html';
+        }
+    })
+
     document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
     const inputElement = document.getElementById("col");
     inputElement.addEventListener("change", handleFiles, false);

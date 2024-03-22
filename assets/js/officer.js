@@ -82,6 +82,33 @@ function createOfficer(officer) {
 }
 (function () {
 
+    // const name = window.atob(document.cookie.split(';')[2].substring(6)).split('-')[0];
+    let isLoggedin = false;
+
+    const token = document.cookie.split(';').find(value => value.includes('oken'))
+    if (!token) {
+        // window.location.href = './login.html'
+    } else {
+        isLoggedin = true
+        document.querySelector('.portal-btn').textContent = "Logout"
+        // window.location.href ='./login.html'
+    }
     //populate officers
     officers.forEach(createOfficer);
+
+    document.querySelector('.portal-btn').addEventListener('click', function () {
+        if (isLoggedin) {
+            const cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+            window.location.href = './index.html';
+        } else {
+            window.location.href = './login.html';
+        }
+    })
 })();

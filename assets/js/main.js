@@ -9,6 +9,15 @@
 (function () {
   "use strict";
 
+  document.querySelector('.portal-btn').addEventListener('click', function () {
+    if (login) {
+      document.cookie = "";
+      window.redirect('./index.html');
+    } else {
+      window.redirect('./login.html');
+    }
+  })
+
   /**
    * Easy selector helper function
    */
