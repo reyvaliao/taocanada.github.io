@@ -33,7 +33,7 @@
 })();
 
 async function logout(token) {
-    const response = await fetch('http://ec2-54-173-229-172.compute-1.amazonaws.com:8080/logout', {
+    const response = await fetch('https://taocanada.ca/logout', {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
