@@ -24,7 +24,7 @@ async function getEmails() {
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
         isLoggedin = true
-        const name = window.atob(token.substring(6)).split('-')[0];
+        const name = window.atob(token.trim().substring(6)).split('-')[0];
         window.location.href = './index.html';
 
 

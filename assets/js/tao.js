@@ -11,16 +11,16 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
     // document.querySelector(".members table").classList.add('show')
     let isLoggedin = false;
 
-    const token = document.cookie.split(';').find(value => value.includes('oken'))
+    const token = document.cookie.split(';').find(value => value.includes('token'))
     if (!token) {
         window.location.href = './login.html'
     }
     isLoggedin = true;
 
 
-    const name = window.atob(token.substring(6)).split('-')[0]
+    const name = window.atob(token.trim().substring(6)).split('-')[0]
     document.querySelector('#loggedInUser').textContent = name + " "
-    const tokenValue = token.substring(6)
+    const tokenValue = token.trim().substring(6)
     if (tokenValue.split('.')[1]) {
         const isGoogle = decodeJwtResponse(tokenValue.split(',')[1])
         if (isGoogle.name) {
@@ -30,7 +30,7 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
         }
 
     } else {
-        getMembers(token.substring(6)).then((data) => {
+        getMembers(token.trim().substring(6)).then((data) => {
             if (data.code === 200) {
                 const tableEl = document.querySelector("#membersTpl")
                 data.msg.forEach(createRow);

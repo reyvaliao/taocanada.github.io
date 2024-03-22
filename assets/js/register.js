@@ -74,7 +74,7 @@ function checkForms() {
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
         isLoggedin = true;
-        const name = window.atob(token.substring(6)).split('-')[0];
+        const name = window.atob(token.trim().substring(6)).split('-')[0];
         document.querySelector('#loggedInUser').textContent = name + " ";
         document.querySelector('.registration-form').style.display = 'none';
         document.querySelector('.registered').style.display = 'none';
