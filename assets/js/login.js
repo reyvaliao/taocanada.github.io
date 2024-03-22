@@ -9,31 +9,16 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
 
 (function () {
     "use strict";
-    // const tableEl = document.querySelector("#membersTpl")
-    // members.forEach(createRow)
-    // document.querySelector(".members table").classList.add('show')
-    // createRow(['foo', 'bar'])
-    // const tableEl = document.querySelector("#membersTpl")
-    // members.forEach(createRow);
-    // document.querySelector(".members table").classList.add('show')
     let isLoggedin = false;
 
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
         isLoggedin = true
         const name = window.atob(token.substring(6)).split('-')[0];
-        window.location.href = './index-bk.html';
+        window.location.href = './index.html';
 
 
     }
-    document.querySelector('.portal-btn').addEventListener('click', function () {
-        if (isLoggedin) {
-            document.cookie = "";
-            window.location.href = './index.html';
-        } else {
-            window.location.href = './login.html';
-        }
-    })
 
     document.querySelector('button[type="submit"]').addEventListener('click', (e) => {
         e.preventDefault()

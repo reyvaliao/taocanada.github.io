@@ -105,251 +105,256 @@
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
             <h2>Register</h2>
-           
           </div>
-          <section id="personal_information">
-            <p>Personal Information</p>
-            <div class="row">
-                    <div class="col-md-4 form-group">
-                    <label for="name">Full Name</label>
-                    <input
-                        type="text"
-                        name="Full Name"
-                        class="form-control"
-                        id="name"
-                        placeholder="Dela Cruz, Juan M"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="address">Current Address</label>
-                    <input
-                        type="text"
-                        name="Current Address"
-                        class="form-control"
-                        id="address"
-                        placeholder="Number / Street / City / Province / Zip Code "
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="phone">Phone Number</label>
-                    <input
-                        type="text"
-                        name="Phone number"
-                        class="form-control"
-                        id="phone"
-                        placeholder="country code + area code + phone"
-                        required=""
-                    />
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-4 form-group">
-                    <label for="employer">Employer Name</label>
-                    <input
-                        type="text"
-                        name="Employer Name"
-                        class="form-control"
-                        id="employer"
-                        placeholder="Employer"
-                        required=""
-                    />
-                    </div>
-                 
-                    <div class="col-md-4 form-group">
-                        <label for="arrived">Date Arrived in Canada</label>
-                    <input
-                        type="text"
-                        onfocus="(this.type='date')"
-                        class="form-control"
-                        name="arrived"
-                        id="arrived"
-                        placeholder="Date Arrived in Canada"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="status">Immigration Status in Canada</label>
-                        <select class="form-select col-md-4 form-group" id="status" aria-label="Status">
-                            <option selected value="Citizen">Citizen</option>
-                            <option value="Permanent Resident">Permanent Resident</option>
-                            <option value="Student Permit">Student Permit</option>
-                            <option value="Working Permit">Working Permit</option>
-                        </select>
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-6 form-group">
-                    <label for="photo">Please upload your latest photo or selfie for identification</label>
-                    <input
-                        type="file"
-                        name="Photo"
-                        class="form-control"
-                        id="photo"
-                        placeholder="Photo ID"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label for="emergency">Name and Phone Number of the person to contact in case of emergency </label>
-                    <input
-                        type="text"
-                        name="Contact Number"
-                        class="form-control"
-                        id="emergency"
-                        placeholder="Emergency Contact number"
-                        required=""
-                    />
-                    </div>
-            </div>
-          </section>
+          <p class="registered-user">
+            You are already registered <span id="loggedInUser"></span>
+          </p>
+          <div class="registration-form">
 
-          <section id="fraternal_information">
-            <p>Fraternal Information</p>
-            <div class="row">
-                    <div class="col-md-4 form-group">
-                        <label for="alexis">Alexis</label>
-                    <input
-                        type="text"
-                        name="Alexis"
-                        class="form-control"
-                        id="alexis"
-                        placeholder="Alexis name"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="root">Root Chapter</label>
-                    <input
-                        type="text"
-                        name="Root Chapter"
-                        class="form-control"
-                        id="root"
-                        placeholder="Root Chapter"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="initiated">Date Initiated</label>
-                    <input
-                        type="text"
-                        onfocus="(this.type='date')"
-                        class="form-control"
-                        name="initiated"
-                        id="initiated"
-                        placeholder="Date Initiated"
-                        required=""
-                    />
-                    </div>
-            </div>
-            <div class="row">
-                    <div class="col-md-4 form-group">
-                        <label for="welcome">Welcome Chapter</label>
-                    <input
-                        type="text"
-                        name="welcome chapter"
-                        class="form-control"
-                        id="welcome"
-                        placeholder="Enter NA if Not Applicable"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="dateWelcomed">Date Welcomed</label>
-                    <input
-                        type="text"
-                        onfocus="(this.type='date')"
-                        class="form-control"
-                        name="dateWelcomed"
-                        id="dateWelcomed"
-                        placeholder="Leave it blank if the answer above is NA"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="gt">Grand Triskelion or Lady Grand Triskelion</label>
-                    <input
-                        type="text"
-                        name="Grand Triskelion or Lady Grand Triskelion"
-                        class="form-control"
-                        id="gt"
-                        placeholder="Name and Contact Number"
-                        required=""
-                    />
-                    </div>
+            <section id="personal_information">
+              <p>Personal Information</p>
+              <div class="row">
+                      <div class="col-md-4 form-group">
+                      <label for="name">Full Name</label>
+                      <input
+                          type="text"
+                          name="Full Name"
+                          class="form-control"
+                          id="name"
+                          placeholder="Dela Cruz, Juan M"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="address">Current Address</label>
+                      <input
+                          type="text"
+                          name="Current Address"
+                          class="form-control"
+                          id="address"
+                          placeholder="Number / Street / City / Province / Zip Code "
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="phone">Phone Number</label>
+                      <input
+                          type="text"
+                          name="Phone number"
+                          class="form-control"
+                          id="phone"
+                          placeholder="country code + area code + phone"
+                          required=""
+                      />
+                      </div>
+              </div>
+              <div class="row">
+                      <div class="col-md-4 form-group">
+                      <label for="employer">Employer Name</label>
+                      <input
+                          type="text"
+                          name="Employer Name"
+                          class="form-control"
+                          id="employer"
+                          placeholder="Employer"
+                          required=""
+                      />
+                      </div>
+                  
+                      <div class="col-md-4 form-group">
+                          <label for="arrived">Date Arrived in Canada</label>
+                      <input
+                          type="text"
+                          onfocus="(this.type='date')"
+                          class="form-control"
+                          name="arrived"
+                          id="arrived"
+                          placeholder="Date Arrived in Canada"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="status">Immigration Status in Canada</label>
+                          <select class="form-select col-md-4 form-group" id="status" aria-label="Status">
+                              <option selected value="Citizen">Citizen</option>
+                              <option value="Permanent Resident">Permanent Resident</option>
+                              <option value="Student Permit">Student Permit</option>
+                              <option value="Working Permit">Working Permit</option>
+                          </select>
+                      </div>
+              </div>
+              <div class="row">
+                      <div class="col-md-6 form-group">
+                      <label for="photo">Please upload your latest photo or selfie for identification</label>
+                      <input
+                          type="file"
+                          name="Photo"
+                          class="form-control"
+                          id="photo"
+                          placeholder="Photo ID"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-6 form-group">
+                          <label for="emergency">Name and Phone Number of the person to contact in case of emergency </label>
+                      <input
+                          type="text"
+                          name="Contact Number"
+                          class="form-control"
+                          id="emergency"
+                          placeholder="Emergency Contact number"
+                          required=""
+                      />
+                      </div>
+              </div>
+            </section>
+
+            <section id="fraternal_information">
+              <p>Fraternal Information</p>
+              <div class="row">
+                      <div class="col-md-4 form-group">
+                          <label for="alexis">Alexis</label>
+                      <input
+                          type="text"
+                          name="Alexis"
+                          class="form-control"
+                          id="alexis"
+                          placeholder="Alexis name"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="root">Root Chapter</label>
+                      <input
+                          type="text"
+                          name="Root Chapter"
+                          class="form-control"
+                          id="root"
+                          placeholder="Root Chapter"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="initiated">Date Initiated</label>
+                      <input
+                          type="text"
+                          onfocus="(this.type='date')"
+                          class="form-control"
+                          name="initiated"
+                          id="initiated"
+                          placeholder="Date Initiated"
+                          required=""
+                      />
+                      </div>
+              </div>
+              <div class="row">
+                      <div class="col-md-4 form-group">
+                          <label for="welcome">Welcome Chapter</label>
+                      <input
+                          type="text"
+                          name="welcome chapter"
+                          class="form-control"
+                          id="welcome"
+                          placeholder="Enter NA if Not Applicable"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="dateWelcomed">Date Welcomed</label>
+                      <input
+                          type="text"
+                          onfocus="(this.type='date')"
+                          class="form-control"
+                          name="dateWelcomed"
+                          id="dateWelcomed"
+                          placeholder="Leave it blank if the answer above is NA"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="gt">Grand Triskelion or Lady Grand Triskelion</label>
+                      <input
+                          type="text"
+                          name="Grand Triskelion or Lady Grand Triskelion"
+                          class="form-control"
+                          id="gt"
+                          placeholder="Name and Contact Number"
+                          required=""
+                      />
+                      </div>
+                      
+              </div>
+              <div class="row">
+                      <div class="col-md-4 form-group">
+                          <label for="mi">Master Initiator</label>
+                      <input
+                          type="text"
+                          name="Master Initiator"
+                          class="form-control"
+                          id="mi"
+                          placeholder="Name and Contact Number"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="vouched">Vouching Brother/Sister</label>
+                      <input
+                          type="text"
+                          name="Vouching Brother/Sister"
+                          class="form-control"
+                          id="vouched"
+                          placeholder="Name and Contact Number of Co-Chapter"
+                          required=""
+                      />
+                      </div>
+                      <div class="col-md-4 form-group">
+                          <label for="batchmates">Batch Mates Name</label>
+                      <input
+                          type="text"
+                          name="Batch Mates Name"
+                          class="form-control"
+                          id="batchmates"
+                          placeholder="Names and Contact Numbers of Batch Mates (enter NA if no batch mates)"
+                          required=""
+                      />
+                      </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 form-group">
+                      <label for="col">Please upload your COL</label>
+                      <input
+                          type="file"
+                          name="Photo"
+                          class="form-control"
+                          id="col"
+                          placeholder="Please upload your COL"
+                          required=""
+                      />
+                  </div>
+                  <div class="col-md-6 form-group">
+                      <label for="col">Please upload the receipt of your membership payment
+                      </label>
+                      <input
+                          type="file"
+                          name="col"
+                          class="form-control"
+                          id="membership"
+                          placeholder="Proof of Payment"
+                          required=""
+                      />
+                  </div>
                     
-            </div>
-            <div class="row">
-                    <div class="col-md-4 form-group">
-                        <label for="mi">Master Initiator</label>
-                    <input
-                        type="text"
-                        name="Master Initiator"
-                        class="form-control"
-                        id="mi"
-                        placeholder="Name and Contact Number"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="vouched">Vouching Brother/Sister</label>
-                    <input
-                        type="text"
-                        name="Vouching Brother/Sister"
-                        class="form-control"
-                        id="vouched"
-                        placeholder="Name and Contact Number of Co-Chapter"
-                        required=""
-                    />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="batchmates">Batch Mates Name</label>
-                    <input
-                        type="text"
-                        name="Batch Mates Name"
-                        class="form-control"
-                        id="batchmates"
-                        placeholder="Names and Contact Numbers of Batch Mates (enter NA if no batch mates)"
-                        required=""
-                    />
-                    </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 form-group">
-                    <label for="col">Please upload your COL</label>
-                    <input
-                        type="file"
-                        name="Photo"
-                        class="form-control"
-                        id="col"
-                        placeholder="Please upload your COL"
-                        required=""
-                    />
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="col">Please upload the receipt of your membership payment
-                    </label>
-                    <input
-                        type="file"
-                        name="col"
-                        class="form-control"
-                        id="membership"
-                        placeholder="Proof of Payment"
-                        required=""
-                    />
-                </div>
-                   
-                    
-            </div>
-          </section>
+                      
+              </div>
+            </section>
+          </div>
+          
 
-
-          <div class="row justify-content-end">
+          <div class="row justify-content-end registered">
             <div class="col-lg-4">
                 <div class="text-center"><button type="submit">Submit</button></div>
             </div>
-            <div class="my-3">
+            <div class="my-3 ">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
@@ -411,6 +416,7 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/register.js"></script>
+    <script src="assets/js/authentication.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
   </body>
 </html>

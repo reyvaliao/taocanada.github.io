@@ -16,26 +16,11 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
         window.location.href = './login.html'
     }
     isLoggedin = true;
-    document.querySelector('.portal-btn').textContent = "Logout"
 
-    document.querySelector('.portal-btn').addEventListener('click', function () {
-        if (isLoggedin) {
-            const cookies = document.cookie.split(";");
 
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i];
-                const eqPos = cookie.indexOf("=");
-                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-            window.location.href = './index-bk.html';
-        } else {
-            window.location.href = './login.html';
-        }
-    })
     const name = window.atob(token.substring(6)).split('-')[0]
     document.querySelector('#loggedInUser').textContent = name + " "
-    const tokenValue = token.substring(7)
+    const tokenValue = token.substring(6)
     if (tokenValue.split('.')[1]) {
         const isGoogle = decodeJwtResponse(tokenValue.split(',')[1])
         if (isGoogle.name) {
@@ -126,4 +111,8 @@ async function getMembers(token) {
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     });
     return response.json(); // parses JSON response into native JavaScript objects
+}
+
+async function logout(token) {
+
 }

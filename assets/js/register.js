@@ -69,33 +69,21 @@ function checkForms() {
     }
 }
 (function () {
-    const token = document.cookie.split(';').find(value => value.includes('token'))
+    let isLoggedin = false;
 
-    const name = window.atob(token.substring(7)).split('-')[0]
-    let login = false;
-    if (name) {
-        login = true;
-        document.querySelector('.portal-btn').textContent = 'Logout'
-
-
+    const token = document.cookie.split(';').find(value => value.includes('oken'))
+    if (token) {
+        isLoggedin = true;
+        const name = window.atob(token.substring(6)).split('-')[0];
+        document.querySelector('#loggedInUser').textContent = name + " ";
+        document.querySelector('.registration-form').style.display = 'none';
+        document.querySelector('.registered').style.display = 'none';
+    } else {
+        document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
+        document.querySelector('.registered-user').style.display = 'none';
+        document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
     }
-    document.querySelector('.portal-btn').addEventListener('click', function () {
-        if (login) {
-            const cookies = document.cookie.split(";");
 
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i];
-                const eqPos = cookie.indexOf("=");
-                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-            window.location.href = './index.html';
-        } else {
-            window.location.href = './login.html';
-        }
-    })
-
-    document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
     const inputElement = document.getElementById("col");
     inputElement.addEventListener("change", handleFiles, false);
     function handleFiles() {
@@ -105,7 +93,6 @@ function checkForms() {
 })();
 
 async function register(data) {
-
     const response = await fetch('http://localhost:8080/profile-upload-multiple', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
@@ -120,5 +107,4 @@ async function register(data) {
         body: data // body data type must match "Content-Type" header
     });
     return response.json(); // parses JSON response into native JavaScript objects
-
 }
