@@ -97,7 +97,7 @@ function decodeJwtResponse(token) {
 
 async function getMembers(token) {
 
-    const response = await fetch('https://taocanada.ca/api/members', {
+    const response = await fetch('https://taocanada.ca:8080/api/members', {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

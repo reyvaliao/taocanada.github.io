@@ -3,7 +3,7 @@ window.membersEmail = new Map();
 
 
 async function getEmails() {
-    const response = await fetch('https://taocanada.ca/api/members/emails', {
+    const response = await fetch('https://taocanada.ca:8080/api/members/emails', {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         headers: {
             "Content-Type": "application/json"
@@ -54,7 +54,7 @@ async function getEmails() {
 
 async function login(email, password) {
 
-    const response = await fetch('https://taocanada.ca/login', {
+    const response = await fetch('https://taocanada.ca:8080/login', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
             "Content-Type": "application/json",
