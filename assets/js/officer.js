@@ -20,7 +20,7 @@ const officers = [
         position: 'Asst. Director of Membership',
         image: 'thed.jpg'
     }, {
-        name: 'Joel Prudencio',
+        name: 'Jeol Prudencio',
         position: 'Asst. Director of Membership',
         image: 'joel.jpg'
     }, {
