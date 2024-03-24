@@ -52,6 +52,20 @@ async function getEmails() {
     })
 })();
 
+
+async function loginFromGoogle(email) {
+
+    const response = await fetch('https://taocanada.ca:8080/loginEmail', {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({ email: email }), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
 async function login(email, password) {
 
     const response = await fetch('https://taocanada.ca:8080/login', {
@@ -85,15 +99,16 @@ function createRow(member) {
 function handleCredentialResponse(googleUser) {
     document.querySelector('.error-message').style.display = "none"
     const responsePayload = decodeJwtResponse(googleUser.credential);
-    if (membersEmail.get(responsePayload.email)) {
-        document.cookie = "token=" + googleUser.credential;
-        window.location.href = './members-restricted.html'
-    } else {
-        document.querySelector('.error-message').textContent = "Email entered is not the one you use to registered. Please contact Bro. Ferdie for any assistance in this matter."
-        document.querySelector('.error-message').style.display = "block"
-    }
-
-
+    loginFromGoogle(responsePayload.email).then(data => {
+        console.log(data)
+        if (data.code === 200) {
+            document.cookie = "token=" + data.msg;
+            window.location.href = './members-restricted.html'
+        } else {
+            document.querySelector('.error-message').textContent = "Username and Password is incorrect"
+            document.querySelector('.error-message').style.display = "block"
+        }
+    })
 }
 function signOut() {
 
