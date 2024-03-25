@@ -1,28 +1,30 @@
 
+const requiredFields = [
+    "name",
+    "address",
+    "phone",
+    "employer",
+    "dateArrived",
+    "status",
+    "photo",
+    "emergency",
+    "alexis",
+    "rootChapter",
+    "dateInitiated",
+    "welcomeChapter",
+    "dateWelcomed",
+    "gt",
+    "mi",
+    "vouched",
+    "batchmates"
 
+];
+const datesFields = [
+    "dateArrived",
+    "dateWelcomed",
+    "dateInitiated"
+]
 function checkForms() {
-
-    const requiredFields = [
-        "name",
-        "address",
-        "phone",
-        "employer",
-        "arrived",
-        "status",
-        "photo",
-        "emergency",
-
-        "alexis",
-        "root",
-        "initiated",
-        "welcome",
-        "dateWelcomed",
-        "gt",
-        "mi",
-        "vouched",
-        "batchmates"
-
-    ];
     let valid = true;
     requiredFields.forEach(v => {
         document.querySelector('#' + v).classList.remove('is-invalid');
@@ -31,23 +33,19 @@ function checkForms() {
             valid = false;
         }
 
-        const fileList = document.getElementById('col').files[0];
-        const files = Object.keys(fileList).reduce((arr, key) => {
-            arr.push(fileList[key]);
-            return arr;
-        }, []);
-
-        console.log(files);
-
     })
     if (valid) {
 
         const data = new FormData();
-        requiredFields.filter(v => v !== 'col' || v !== 'photo').forEach(v => {
+        requiredFields.filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
         })
+
         data.append('photo', document.getElementById("col").files[0])
-        data.append('col', document.getElementById("col").files[0])
+        if (document.getElementById("col").files[0])
+            data.append('col', document.getElementById("col").files[0])
+        if (document.getElementById("pof").files[0])
+            data.append('pof', document.getElementById("pof").files[0])
 
 
         register(data).then((data) => {
@@ -57,7 +55,7 @@ function checkForms() {
                 window.location.href = './members-restricted.html'
 
             } else {
-                document.querySelector('.error-message').textContent = "Username and Password is incorrect"
+                document.querySelector('.error-message').textContent = data.msg
                 document.querySelector('.error-message').style.display = "block"
             }
         })
@@ -84,16 +82,10 @@ function checkForms() {
         document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
     }
 
-    const inputElement = document.getElementById("col");
-    inputElement.addEventListener("change", handleFiles, false);
-    function handleFiles() {
-        debugger
-        const fileList = this.files; /* now you can work with the file list */
-    }
 })();
 
 async function register(data) {
-    const response = await fetch('http://localhost:8080/profile-upload-multiple', {
+    const response = await fetch('https://taocanada.ca/api/members', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached

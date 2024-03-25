@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>TAO CANADA - Registration Form</title>
+    <title>TAO CANADA - Edit Form</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
     <!-- Favicons -->
@@ -101,18 +101,16 @@
           </svg>
       <!-- ======= Registration Form Section ======= -->
       <form id="foo"></form>
-      <section id="registration-details" class="portfolio-details upsert">
+      <section id="registration-details" class="portfolio-details login upsert">
         <div class="container">
           <div class="section-title" data-aos="zoom-out">
-            <h2>Register</h2>
+            <h2>Edit your profile</h2>
           </div>
-          <p class="registered-user">
-            You are already registered <span id="loggedInUser"></span>
-          </p>
           <div class="registration-form">
 
             <section id="personal_information">
               <p>Personal Information</p>
+              <input id="id" type="hidden"/>
               <div class="row">
                       <div class="col-md-4 form-group">
                       <label for="name">Full Name</label>
@@ -167,7 +165,7 @@
                           type="text"
                           onfocus="(this.type='date')"
                           class="form-control"
-                          name="arrived"
+                          name="dateArrived"
                           id="dateArrived"
                           placeholder="Date Arrived in Canada"
                           required=""
@@ -331,11 +329,11 @@
                       />
                   </div>
                   <div class="col-md-6 form-group">
-                      <label for="pof">Please upload the receipt of your membership payment
+                      <label for="col">Please upload the receipt of your membership payment
                       </label>
                       <input
                           type="file"
-                          name="pof"
+                          name="col"
                           class="form-control"
                           id="pof"
                           placeholder="Proof of Payment"
@@ -413,7 +411,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/register.js"></script>
+    <script src="assets/js/edit.js"></script>
     <script src="assets/js/authentication.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
   </body>

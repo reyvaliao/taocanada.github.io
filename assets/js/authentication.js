@@ -21,7 +21,7 @@
                 const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }
-            logout(token.trim().substring(6)).then(data => {
+            logout(token.substring(6)).then(data => {
                 window.location.href = './index.html';
             })
         } else {
@@ -33,7 +33,7 @@
 })();
 
 async function logout(token) {
-    const response = await fetch('https://taocanada.ca:8080/logout', {
+    const response = await fetch('https://taocanada.ca/logout', {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
