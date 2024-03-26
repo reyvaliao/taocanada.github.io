@@ -13,7 +13,7 @@ const members = [{ "Id": 3, "Name": "Aguila, Rico C.", "date": "5/2/2018", "emai
 
     const token = document.cookie.split(';').find(value => value.includes('token'))
     if (!token) {
-        window.location.href = './login.html'
+        window.location.href = '././login'
     }
     isLoggedin = true;
 

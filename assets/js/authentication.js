@@ -22,10 +22,10 @@
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }
             logout(token.substring(6)).then(data => {
-                window.location.href = './index.html';
+                window.location.href = './';
             })
         } else {
-            window.location.href = './login.html';
+            window.location.href = '././login';
         }
     })
 

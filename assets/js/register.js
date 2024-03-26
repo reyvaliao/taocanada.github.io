@@ -53,7 +53,7 @@ function checkForms() {
             console.log(data)
             if (data.code === 200) {
                 document.cookie = "token=" + data.msg;
-                window.location.href = './members-restricted.html'
+                window.location.href = '././members'
 
             } else {
                 document.querySelector('.error-message').textContent = data.msg

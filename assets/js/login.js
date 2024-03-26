@@ -25,7 +25,7 @@ async function getEmails() {
     if (token) {
         isLoggedin = true
         const name = window.atob(token.trim().substring(6)).split('-')[0];
-        window.location.href = './index.html';
+        window.location.href = './';
 
 
     }
@@ -41,7 +41,7 @@ async function getEmails() {
             console.log(data)
             if (data.code === 200) {
                 document.cookie = "token=" + data.msg;
-                window.location.href = './members-restricted.html'
+                window.location.href = '././members'
 
             } else {
                 document.querySelector('.error-message').textContent = "Username and Password is incorrect"
@@ -104,7 +104,7 @@ function handleCredentialResponse(googleUser) {
         console.log(data)
         if (data.code === 200) {
             document.cookie = "token=" + data.msg;
-            window.location.href = './members-restricted.html'
+            window.location.href = '././members'
         } else {
             document.querySelector('.error-message').textContent = "Username and Password is incorrect"
             document.querySelector('.error-message').style.display = "block"

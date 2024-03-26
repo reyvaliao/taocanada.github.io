@@ -105,7 +105,7 @@ function checkForms() {
             // document.querySelector('#photo').value = 'none.jpg'
         })
     } else {
-        window.location.href = "./login.html"
+        window.location.href = "././login"
     }
 
 
