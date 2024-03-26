@@ -117,7 +117,7 @@ function checkForms() {
 async function editMember(data) {
     // const response = await fetch('http://localhost:8080/api/members/' + document.querySelector('#id').value, {
 
-    const response = await fetch('https://taocanada.ca/api/members/' + document.querySelector('#id').value, {
+    const response = await fetch('https://taocanada.ca:8080/api/members/' + document.querySelector('#id').value, {
         method: "PUT", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
