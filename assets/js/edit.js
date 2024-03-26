@@ -137,7 +137,7 @@ async function editMember(data) {
 async function getMemberEmail(email) {
     const params = (new URL(document.location)).searchParams
     // const response = await fetch('https://taocanada.ca:8080/api/members/' + params.id, {
-    const response = await fetch('http://taocanada.ca:8080/api/members/email?' + new URLSearchParams({ email }), {
+    const response = await fetch('https://taocanada.ca:8080/api/members/email?' + new URLSearchParams({ email }), {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
