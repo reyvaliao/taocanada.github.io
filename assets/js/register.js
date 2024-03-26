@@ -26,13 +26,14 @@ const datesFields = [
 ]
 function checkForms() {
     let valid = true;
-    requiredFields.forEach(v => {
+
+    valid = [...requiredFields, email].some(v => {
         document.querySelector('#' + v).classList.remove('is-invalid');
         if (document.querySelector('#' + v).value.length === 0) {
             document.querySelector('#' + v).classList.add('is-invalid');
-            valid = false;
+            return false;
         }
-
+        return true;
     })
     if (valid) {
 
@@ -41,7 +42,7 @@ function checkForms() {
             data.append(v, document.querySelector('#' + v).value);
         })
 
-        data.append('photo', document.getElementById("col").files[0])
+        data.append('photo', document.getElementById("photo").files[0])
         if (document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
         if (document.getElementById("pof").files[0])
@@ -85,6 +86,8 @@ function checkForms() {
 })();
 
 async function register(data) {
+    // const response = await fetch('http://localhost:8080/api/members', {
+
     const response = await fetch('https://taocanada.ca/api/members', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin

@@ -67,64 +67,64 @@ async function loginFromGoogle(email) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 async function login(email, password) {
+    // const response = await fetch('http://localhost:8080/login', {
+
     const response = await fetch('https://taocanada.ca:8080/login', {
-
-        const response = await fetch('https://taocanada.ca:8080/login', {
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            headers: {
-                "Content-Type": "application/json",
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify({ email: email, password: password }), // body data type must match "Content-Type" header
-        });
-        return response.json(); // parses JSON response into native JavaScript objects
-    }
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({ email: email, password: password }), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
 function createRow(member) {
-            const rowEl = document.createElement("tr")
-            const nameEl = document.createElement("td")
-            nameEl.textContent = member.name
-            const numberEl = document.createElement("td")
-            numberEl.textContent = member.email
-            const dateEl = document.createElement("td")
-            dateEl.textContent = member.dateArrived
+    const rowEl = document.createElement("tr")
+    const nameEl = document.createElement("td")
+    nameEl.textContent = member.name
+    const numberEl = document.createElement("td")
+    numberEl.textContent = member.email
+    const dateEl = document.createElement("td")
+    dateEl.textContent = member.dateArrived
 
-            rowEl.appendChild(nameEl)
-            rowEl.appendChild(numberEl)
-            rowEl.appendChild(dateEl)
-            const tableEl = document.querySelector("#membersTpl")
+    rowEl.appendChild(nameEl)
+    rowEl.appendChild(numberEl)
+    rowEl.appendChild(dateEl)
+    const tableEl = document.querySelector("#membersTpl")
 
-            tableEl.appendChild(rowEl)
+    tableEl.appendChild(rowEl)
 
-        }
+}
 function handleCredentialResponse(googleUser) {
-            document.querySelector('.error-message').style.display = "none"
-            const responsePayload = decodeJwtResponse(googleUser.credential);
-            loginFromGoogle(responsePayload.email).then(data => {
-                console.log(data)
-                if (data.code === 200) {
-                    document.cookie = "token=" + data.msg;
-                    window.location.href = './members-restricted.html'
-                } else {
-                    document.querySelector('.error-message').textContent = "Username and Password is incorrect"
-                    document.querySelector('.error-message').style.display = "block"
-                }
-            })
+    document.querySelector('.error-message').style.display = "none"
+    const responsePayload = decodeJwtResponse(googleUser.credential);
+    loginFromGoogle(responsePayload.email).then(data => {
+        console.log(data)
+        if (data.code === 200) {
+            document.cookie = "token=" + data.msg;
+            window.location.href = './members-restricted.html'
+        } else {
+            document.querySelector('.error-message').textContent = "Username and Password is incorrect"
+            document.querySelector('.error-message').style.display = "block"
         }
+    })
+}
 function signOut() {
 
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-            });
-        }
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+}
 function decodeJwtResponse(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-            return JSON.parse(jsonPayload);
-        }
+    return JSON.parse(jsonPayload);
+}
 // 

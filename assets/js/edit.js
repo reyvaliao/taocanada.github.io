@@ -34,12 +34,22 @@ function checkForms() {
         }
 
     })
+
+    valid = requiredFields.some(v => {
+        document.querySelector('#' + v).classList.remove('is-invalid');
+        if (document.querySelector('#' + v).value.length === 0) {
+            document.querySelector('#' + v).classList.add('is-invalid');
+            return false;
+        }
+        return true;
+    })
     if (valid) {
         const data = new FormData();
         requiredFields.filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
         })
-        data.append('id', document.querySelector('#id').value)
+        data.append('id', document.querySelector('#id').value);
+        data.append('email', document.querySelector('#email').value);
         data.append('photo', document.getElementById("photo").files[0])
         if (document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
@@ -70,11 +80,12 @@ function checkForms() {
     document.querySelector('.sent-message').style.display = "none"
     let isLoggedin = false;
 
+    // const token = true
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
         isLoggedin = true;
         const email = window.atob(token.trim().substring(6)).split('-').pop();
-        debugger
+
         getMemberEmail(email).then(data => {
             if (!Object.keys(data).length) {
                 return;
@@ -89,7 +100,8 @@ function checkForms() {
 
 
             })
-            document.querySelector('#id').value = member['id']
+            document.querySelector('#id').value = member['id'];
+            document.querySelector('#email').value = member['email']
             // document.querySelector('#photo').value = 'none.jpg'
         })
     } else {
@@ -103,6 +115,8 @@ function checkForms() {
 })();
 
 async function editMember(data) {
+    // const response = await fetch('http://localhost:8080/api/members/' + document.querySelector('#id').value, {
+
     const response = await fetch('https://taocanada.ca/api/members/' + document.querySelector('#id').value, {
         method: "PUT", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
