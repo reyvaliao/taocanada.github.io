@@ -54,7 +54,7 @@ function checkForms() {
         if (document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
         if (document.getElementById("pof").files[0])
-            data.append('pof', document.getElementById("pof").files[0])
+            data.append('pop', document.getElementById("pop").files[0])
 
 
         editMember(data).then((data) => {
