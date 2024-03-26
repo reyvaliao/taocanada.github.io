@@ -67,7 +67,7 @@ async function loginFromGoogle(email) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 async function login(email, password) {
-    // const response = await fetch('http://localhost:8080/login', {
+    // const response = await fetch('https://taocanada.ca:8080/login', {
 
     const response = await fetch('https://taocanada.ca:8080/login', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.

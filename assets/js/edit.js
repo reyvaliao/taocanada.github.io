@@ -53,7 +53,7 @@ function checkForms() {
         data.append('photo', document.getElementById("photo").files[0])
         if (document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
-        if (document.getElementById("pof").files[0])
+        if (document.getElementById("pop").files[0])
             data.append('pop', document.getElementById("pop").files[0])
 
 
@@ -115,7 +115,7 @@ function checkForms() {
 })();
 
 async function editMember(data) {
-    // const response = await fetch('http://localhost:8080/api/members/' + document.querySelector('#id').value, {
+    // const response = await fetch('https://taocanada.ca:8080/api/members/' + document.querySelector('#id').value, {
 
     const response = await fetch('https://taocanada.ca:8080/api/members/' + document.querySelector('#id').value, {
         method: "PUT", // *GET, POST, PUT, DELETE, etc.

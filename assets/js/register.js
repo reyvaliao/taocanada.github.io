@@ -46,7 +46,7 @@ function checkForms() {
         if (document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
         if (document.getElementById("pop").files[0])
-            data.append('pof', document.getElementById("pop").files[0])
+            data.append('pop', document.getElementById("pop").files[0])
 
 
         register(data).then((data) => {
@@ -86,7 +86,7 @@ function checkForms() {
 })();
 
 async function register(data) {
-    // const response = await fetch('http://localhost:8080/api/members', {
+    // const response = await fetch('https://taocanada.ca:8080/api/members', {
 
     const response = await fetch('https://taocanada.ca:8080/api/members', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
