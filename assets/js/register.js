@@ -88,7 +88,7 @@ function checkForms() {
 async function register(data) {
     // const response = await fetch('http://localhost:8080/api/members', {
 
-    const response = await fetch('https://taocanada.ca/api/members', {
+    const response = await fetch('https://taocanada.ca:8080/api/members', {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
