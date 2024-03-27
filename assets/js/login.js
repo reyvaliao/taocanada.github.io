@@ -1,26 +1,8 @@
-window.membersEmail = new Map();
 
-
-
-async function getEmails() {
-    const response = await fetch('https://taocanada.ca:8080/api/members/emails', {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        headers: {
-            "Content-Type": "application/json"
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    });
-    return response.json();
-}
 (function () {
     "use strict";
     let isLoggedin = false;
-    getEmails().then((data) => {
-        data.msg.forEach(v => {
-            window.membersEmail.set(v.email, v.email)
-        })
-    })
+
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
         isLoggedin = true
