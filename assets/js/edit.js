@@ -52,9 +52,9 @@ function checkForms() {
         data.append('id', document.querySelector('#id').value);
         data.append('email', document.querySelector('#email').value);
         data.append('photo', document.getElementById("photo").files[0])
-        if (document.getElementById("col") && document.getElementById("col").files[0])
+        if (document.getElementById("col").files && document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
-        if (document.getElementById("pop") && document.getElementById("pop").files[0])
+        if (document.getElementById("pop").files && document.getElementById("pop").files[0])
             data.append('pop', document.getElementById("pop").files[0])
 
 

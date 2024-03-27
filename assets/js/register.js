@@ -45,10 +45,11 @@ function checkForms() {
         })
 
         data.append('photo', document.getElementById("photo").files[0])
-        if (document.getElementById("col").files[0])
+        if (document.getElementById("col").files && document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
-        if (document.getElementById("pop").files[0])
+        if (document.getElementById("pop").files && document.getElementById("pop").files[0])
             data.append('pop', document.getElementById("pop").files[0])
+
 
 
         register(data).then((data) => {
