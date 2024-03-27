@@ -189,11 +189,13 @@
                       <input
                           type="file"
                           name="Photo"
+                          accept="image/png, image/jpeg"
                           class="form-control"
                           id="photo"
                           placeholder="Photo ID"
                           required=""
                       />
+                      <p class="photoMsg errorMsg hide"></p>
                       </div>
                       <div class="col-md-6 form-group">
                           <label for="emergency">Name and Phone Number of the person to contact in case of emergency </label>
@@ -321,26 +323,28 @@
               <div class="row">
                   <div class="col-md-6 form-group">
                       <label for="col">Please upload your COL</label>
-                      <input
-                          type="file"
+                      <196
                           name="Photo"
                           class="form-control"
                           id="col"
                           placeholder="Please upload your COL"
                           required=""
                       />
+                      <p class="colMsg errorMsg hide"></p>
                   </div>
                   <div class="col-md-6 form-group">
                       <label for="pop">Please upload the receipt of your membership payment
                       </label>
                       <input
                           type="file"
+                          accept="image/png, image/jpeg"
                           name="col"
                           class="form-control"
                           id="pop"
                           placeholder="Proof of Payment"
                           required=""
                       />
+                      <p class="popMsg errorMsg hide"></p>
                   </div>
                     
                       

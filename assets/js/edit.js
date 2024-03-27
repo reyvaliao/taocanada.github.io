@@ -23,8 +23,9 @@ const datesFields = [
     "dateWelcomed",
     "dateInitiated"
 ]
-
+let inputFileInvalid = false;
 function checkForms() {
+    document.querySelector('button[type="submit"]').disabled = true
     let valid = true;
     requiredFields.forEach(v => {
         document.querySelector('#' + v).classList.remove('is-invalid');
@@ -43,7 +44,7 @@ function checkForms() {
         }
         return true;
     })
-    if (valid) {
+    if ([valid, inputFileInvalid].some(v => v)) {
         const data = new FormData();
         requiredFields.filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
@@ -59,6 +60,7 @@ function checkForms() {
 
         editMember(data).then((data) => {
             console.log(data)
+            document.querySelector('button[type="submit"]').disabled = false
             if (data.code === 200) {
                 document.querySelector('.sent-message').textContent = "You have successfully updated your account"
                 document.querySelector('.sent-message').style.display = "block"
@@ -111,6 +113,55 @@ function checkForms() {
 
     document.querySelector('button[type="submit"]').addEventListener('click', checkForms)
 
+    let imageColUpload = document.getElementById("col");
+    imageColUpload.onchange = function () {
+        let imgColMsg = document.querySelector('.colMsg');
+        inputFileInvalid = false;
+        imgColMsg.style.display = "none"
+        let input = this.files[0];
+        let text;
+        if (input.size / 1000000 < 2) {
+            console.log(input, "----")
+        } else {
+            imgColMsg.textContent = "Image is higher than 2mb";
+            imgColMsg.style.display = "block"
+            inputFileInvalid = true;
+        }
+    };
+
+
+    let imagePhotoUpload = document.getElementById("photo");
+    imagePhotoUpload.onchange = function () {
+        let imgPhotoMsg = document.querySelector('.photoMsg');
+        inputFileInvalid = false;
+        imgPhotoMsg.style.display = "none"
+        let input = this.files[0];
+        let text;
+        if (input.size / 1000000 < 2) {
+            console.log(input, "----")
+        } else {
+            imgPhotoMsg.textContent = "Image is higher than 2mb";
+            imgPhotoMsg.style.display = "block"
+            inputFileInvalid = true;
+        }
+    };
+
+
+    let imagePopUpload = document.getElementById("pop");
+    imagePopUpload.onchange = function () {
+        let imgPopMsg = document.querySelector('.popMsg');
+        inputFileInvalid = false;
+        imgPopMsg.style.display = "none"
+        let input = this.files[0];
+        let text;
+        if (input.size / 1000000 < 2) {
+            console.log(input, "----")
+        } else {
+            imgPopMsg.textContent = "Image is higher than 2mb";
+            imgPopMsg.style.display = "block"
+            inputFileInvalid = true;
+        }
+    };
 
 })();
 

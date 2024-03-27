@@ -201,12 +201,15 @@
                       <label for="photo">Please upload your latest photo or selfie for identification</label>
                       <input
                           type="file"
+                          accept="image/png, image/jpeg"
                           name="Photo"
                           class="form-control"
                           id="photo"
                           placeholder="Photo ID"
                           required=""
                       />
+                       <p class="photoMsg errorMsg hide"></p>
+                     
                       </div>
                       <div class="col-md-4 form-group">
                           <label for="emergency">Name and Phone Number of the person to contact in case of emergency </label>
@@ -336,24 +339,28 @@
                       <label for="col">Please upload your COL</label>
                       <input
                           type="file"
+                          accept="image/png, image/jpeg"
                           name="Photo"
                           class="form-control"
                           id="col"
                           placeholder="Please upload your COL"
                           required=""
                       />
+                      <p class="colMsg errorMsg hide"></p>
                   </div>
                   <div class="col-md-6 form-group">
                       <label for="pop">Please upload the receipt of your membership payment
                       </label>
                       <input
                           type="file"
+                          accept="image/png, image/jpeg"
                           name="pop"
                           class="form-control"
                           id="pop"
                           placeholder="Proof of Payment"
                           required=""
                       />
+                       <p class="popMsg errorMsg hide"></p>
                   </div>
                     
                       
@@ -364,7 +371,7 @@
 
           <div class="row justify-content-end registered">
             <div class="col-lg-2">
-                <div class="text-center"><button type="submit">Submit</button></div>
+                <div class="text-center"><button type="submit" class="btn btn-lg btn-primary">Submit</button></div>
             </div>
             <div class="my-3 ">
                 <div class="error-message"></div>

@@ -309,13 +309,7 @@ body {
 
 .login-email-form button[type=submit],
 .upsert button[type=submit] {
-    background: #ef6603;
-    border: 0;
-    padding: 10px 24px;
-    color: #fff;
-    transition: 0.4s;
-    border-radius: 50px;
-    width: 100%;
+
     margin-top: 10px;
 
 }
@@ -405,13 +399,7 @@ body {
 
 #registration-details {
     button[type=submit] {
-        background: #ef6603;
-        border: 0;
-        padding: 10px 24px;
-        color: #fff;
-        transition: 0.4s;
-        border-radius: 50px;
-        width: 100%;
+
         margin-top: 10px;
     }
 
@@ -432,5 +420,14 @@ body {
         background: red;
         padding: 15px;
         font-weight: 600;
+        display: none;
     }
+}
+
+.hide {
+    display: none;
+}
+
+.errorMsg {
+    color: red;
 }
