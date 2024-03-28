@@ -431,3 +431,8 @@ body {
 .errorMsg {
     color: red;
 }
+
+.btn-primary {
+    background-color: #ffb400;
+    border-color: #ffb400;
+}
