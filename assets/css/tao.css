@@ -186,6 +186,10 @@ body {
     }
 }
 
+.members-section {
+    overflow-x: scroll;
+}
+
 .members {
     display: flex;
 

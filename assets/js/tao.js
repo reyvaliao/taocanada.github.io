@@ -49,7 +49,7 @@ function createRow(member) {
     const numberEl = document.createElement("td")
     numberEl.textContent = member.email
     const dateEl = document.createElement("td")
-    dateEl.textContent = member.dateArrived
+    dateEl.textContent = new Date(member.dateArrived).toLocaleDateString("en-US")
 
     rowEl.appendChild(nameEl)
     rowEl.appendChild(numberEl)
