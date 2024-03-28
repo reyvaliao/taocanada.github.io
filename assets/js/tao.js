@@ -48,12 +48,12 @@ function createRow(member) {
     nameEl.textContent = member.name
     const numberEl = document.createElement("td")
     numberEl.textContent = member.email
-    const dateEl = document.createElement("td")
-    dateEl.textContent = new Date(member.dateArrived).toLocaleDateString("en-US")
+    // const dateEl = document.createElement("td")
+    // dateEl.textContent = new Date(member.dateArrived).toLocaleDateString("en-US")
 
     rowEl.appendChild(nameEl)
     rowEl.appendChild(numberEl)
-    rowEl.appendChild(dateEl)
+    // rowEl.appendChild(dateEl)
     const tableEl = document.querySelector("#membersTpl")
 
     tableEl.appendChild(rowEl)
