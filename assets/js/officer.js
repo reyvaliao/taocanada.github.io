@@ -85,6 +85,14 @@ function createOfficer(officer) {
 
     //populate officers
     officers.forEach(createOfficer);
+    const token = document.cookie.split(';').find(value => value.includes('token'))
+    if (token) {
+        document.querySelector('.member-page').style.display = "block"
+        document.querySelector('.register-page').style.display = "none"
+    } else {
+        document.querySelector('.member-page').style.display = "none"
+        document.querySelector('.register-page').style.display = "block"
+    }
 
 
 })();
