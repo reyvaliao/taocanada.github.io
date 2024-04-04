@@ -8,9 +8,7 @@ const requiredFields = [
     "emergency",
     "alexis",
     "rootChapter",
-    "dateInitiated",
     "welcomeChapter",
-    "dateWelcomed",
     "gt",
     "mi",
     "vouched",
@@ -43,7 +41,7 @@ function checkForms() {
         }
         return true;
     })
-    if ([valid, inputFileInvalid].some(v => v)) {
+    if ([valid, inputFileInvalid, !!document.querySelector('#dateArrived').value].some(v => v)) {
         const data = new FormData();
         requiredFields.filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
