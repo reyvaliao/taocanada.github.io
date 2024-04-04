@@ -95,13 +95,10 @@ function checkForms() {
             }
             const member = data;
             requiredFields.filter(v => (v !== 'col' && v !== 'photo')).forEach(v => {
-                if (datesFields.includes(v)) {
-                    document.querySelector('#' + v).value = (new Date(member[v])).toLocaleDateString("en-US");
-                } else {
-                    document.querySelector('#' + v).value = member[v]
-                }
-
-
+                document.querySelector('#' + v).value = member[v]
+            })
+            datesFields.filter(v => member[v]).forEach(v => {
+                document.querySelector('#' + v).value = (new Date(member[v])).toLocaleDateString();
             })
             document.querySelector('#id').value = member['id'];
             document.querySelector('#email').value = member['email']
