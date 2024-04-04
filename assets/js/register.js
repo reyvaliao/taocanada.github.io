@@ -41,9 +41,9 @@ function checkForms() {
             data.append(v, document.querySelector('#' + v).value);
         })
         datesFields.filter(k => k).forEach(k => {
-            const year = document.querySelector('#' + k).value.split(0)
-            const month = document.querySelector('#' + k).value.split(1) + 1
-            const day = document.querySelector('#' + k).value.split(2)
+            const year = document.querySelector('#' + k).value.split('-')(0)
+            const month = document.querySelector('#' + k).value.split('-')(1) + 1
+            const day = document.querySelector('#' + k).value.split('-')(2)
             data.append(k, new Date(year, month, day).toLocaleDateString());
         })
         data.append('photo', document.getElementById("photo").files[0])
