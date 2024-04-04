@@ -402,6 +402,11 @@ body {
 }
 
 #registration-details {
+    .container h4 {
+        color: #ffb400;
+        display: none;
+    }
+
     button[type=submit] {
 
         margin-top: 10px;

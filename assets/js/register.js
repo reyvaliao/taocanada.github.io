@@ -56,8 +56,11 @@ function checkForms() {
             document.querySelector('button[type="submit"]').disabled = false
             console.log(data)
             if (data.code === 200) {
-                document.cookie = "token=" + data.msg;
-                window.location.href = '././members'
+                // document.cookie = "token=" + data.msg;
+                // window.location.href = '././members'
+                document.querySelector('.registration-form').style.display = "none"
+                document.querySelector('.thankyou').style.display = "block"
+                document.querySelector('button[type="submit"]').style.display = "none";
 
             } else {
                 document.querySelector('.error-message').textContent = data.msg
@@ -72,6 +75,7 @@ function checkForms() {
     }
 }
 (function () {
+
     let isLoggedin = false;
     const token = document.cookie.split(';').find(value => value.includes('oken'))
     if (token) {
