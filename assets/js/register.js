@@ -29,7 +29,7 @@ function checkForms() {
     document.querySelector('button[type="submit"]').disabled = true;
     let valid = true;
 
-    valid = [...requiredFields, email].some(v => {
+    valid = [...requiredFields, 'email'].some(v => {
         document.querySelector('#' + v).classList.remove('is-invalid');
         if (document.querySelector('#' + v).value.length === 0) {
             document.querySelector('#' + v).classList.add('is-invalid');
