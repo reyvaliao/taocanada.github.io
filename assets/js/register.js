@@ -4,7 +4,6 @@ const requiredFields = [
     "address",
     "phone",
     "employer",
-    "dateArrived",
     "status",
     "photo",
     "emergency",
@@ -43,7 +42,9 @@ function checkForms() {
         [...requiredFields, 'email'].filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
         })
-
+        datesFields.filter(k => k).forEach(k => {
+            data.append(k, new Date(document.querySelector('#' + v).value).toLocaleDateString());
+        })
         data.append('photo', document.getElementById("photo").files[0])
         if (document.getElementById("col").files && document.getElementById("col").files[0])
             data.append('col', document.getElementById("col").files[0])
