@@ -11,8 +11,7 @@ let isAdmin = false;
     // document.querySelector(".members table").classList.add('show')
     let isLoggedin = false;
     const admins = ['Pacis, Ferdinand R', 'Valiao,Reynaldo D', "Frederick 'Riki' Rosales"];
-    const token = "Frederick 'Riki' Rosales-asdasdasdasdasdasd";
-    // const token = document.cookie.split(';').find(value => value.includes('token'))
+    const token = document.cookie.split(';').find(value => value.includes('token'))
     if (!token) {
         window.location.href = '././login'
     }
