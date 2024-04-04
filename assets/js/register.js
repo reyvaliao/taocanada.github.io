@@ -43,7 +43,7 @@ function checkForms() {
             data.append(v, document.querySelector('#' + v).value);
         })
         datesFields.filter(k => k).forEach(k => {
-            data.append(k, new Date(document.querySelector('#' + v).value).toLocaleDateString());
+            data.append(k, new Date(document.querySelector('#' + k).value).toLocaleDateString());
         })
         data.append('photo', document.getElementById("photo").files[0])
         if (document.getElementById("col").files && document.getElementById("col").files[0])
