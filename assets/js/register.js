@@ -40,7 +40,7 @@ function checkForms() {
     if ([valid, inputFileInvalid].some(v => v)) {
 
         const data = new FormData();
-        requiredFields.filter(v => v !== 'col' && v !== 'photo').forEach(v => {
+        [...requiredFields, 'email'].filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
         })
 
