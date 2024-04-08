@@ -65,6 +65,9 @@ async function updateStatus(id) {
         debugger
         document.querySelector(`.setActive-${id}`).textContent = data.msg.status === 1 ? 'Reject this member' : 'Approve this member';
         document.querySelector(`.setActive-${id}`).dataset.status = data.msg.status
+
+        document.querySelector(`.status-${id}`).textContent = data.msg.status === 1 ? 'Approved' : 'Rejected';
+        document.querySelector(`.status-${id}`).dataset.status = data.msg.status
     })
 }
 function createRow(member) {
@@ -81,6 +84,9 @@ function createRow(member) {
 
     tableEl.appendChild(rowEl)
 
+    const statusEl = document.createElement("td");
+    statusEl.innerHTML = `<span class='status-${member.id}' data-id='${member.id}' data-status='${member.active}'>${member.active === 1 ? 'Approved' : 'Rejected'}</span>`
+    rowEl.appendChild(statusEl)
     if (isAdmin) {
         const activeEl = document.createElement("td");
 
