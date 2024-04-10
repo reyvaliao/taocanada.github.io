@@ -124,12 +124,12 @@ function createRow(member) {
     if (isAdmin) {
         const activeEl = document.createElement("td");
 
-        activeEl.innerHTML = `<span class='setActive-${member.id}' onclick =updateStatus(${member.id}) data-id='${member.id}' data-status='${member.active}'>${member.active === 1 ? 'Reject this member' : 'Approve this member'}</span>`
+        activeEl.innerHTML = `<span class='setActive-${member.id} portal-btn' onclick =updateStatus(${member.id}) data-id='${member.id}' data-status='${member.active}'>${member.active === 1 ? 'Reject this member' : 'Approve this member'}</span>`
         rowEl.appendChild(activeEl)
 
         const deleteEl = document.createElement("td");
 
-        deleteEl.innerHTML = `<span class='setDelete-${member.id}' onclick=deleteStatus(${member.id}) data-id='${member.id}' >Delete this member</span>`
+        deleteEl.innerHTML = `<span class='setDelete-${member.id} portal-btn' onclick=deleteStatus(${member.id}) data-id='${member.id}' >Delete this member</span>`
         rowEl.appendChild(deleteEl)
     }
 
