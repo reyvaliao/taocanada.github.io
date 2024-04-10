@@ -75,6 +75,8 @@ async function deleteStatus(id) {
     console.log(id)
     deleteMemberStatus(id).then((data) => {
         console.log(data)
+        const token = document.cookie.split(';').find(value => value.includes('token'))
+
         getMembers(token.trim().substring(6)).then((data) => {
             document.querySelector("#membersTpl").innerHTML = ''
             if (data.code === 200) {
