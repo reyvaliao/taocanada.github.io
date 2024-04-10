@@ -70,6 +70,36 @@ async function updateStatus(id) {
         document.querySelector(`.status-${id}`).dataset.status = data.msg.status
     })
 }
+async function deleteStatus(id) {
+    debugger
+    console.log(id)
+    deleteMemberStatus(userid).then((data) => {
+        console.log(data)
+        getMembers(token.trim().substring(6)).then((data) => {
+            document.querySelector("#membersTpl").innerHTML = ''
+            if (data.code === 200) {
+                const tableEl = document.querySelector("#membersTpl")
+                if (isAdmin) {
+                    const headerRowEl = document.querySelector("#membersTplHeader > tr");
+                    const headerEl = document.createElement("th")
+                    headerEl.textContent = 'Membership Status'
+                }
+                data.msg.forEach(createRow);
+                document.querySelector(".members table").classList.add('show')
+            } else {
+                document.querySelector(".notLoggedIn").style.display = "block";
+            }
+            document.querySelector(".setActive").addEventListener('click', function (evt) {
+                debugger
+                console.log(evt.target)
+                updateMemberStatus(evt.target.dataset.id, evt.target.dataset.status).then((data) => {
+                    console.log(evt.target)
+                    debugger
+                })
+            })
+        })
+    })
+}
 function createRow(member) {
     const rowEl = document.createElement("tr")
     const nameEl = document.createElement("td")
@@ -87,11 +117,17 @@ function createRow(member) {
     const statusEl = document.createElement("td");
     statusEl.innerHTML = `<span class='status-${member.id}' data-id='${member.id}' data-status='${member.active}'>${member.active === 1 ? 'Approved' : 'Rejected'}</span>`
     rowEl.appendChild(statusEl)
+
     if (isAdmin) {
         const activeEl = document.createElement("td");
 
         activeEl.innerHTML = `<span class='setActive-${member.id}' onclick =updateStatus(${member.id}) data-id='${member.id}' data-status='${member.active}'>${member.active === 1 ? 'Reject this member' : 'Approve this member'}</span>`
         rowEl.appendChild(activeEl)
+
+        const deleteEl = document.createElement("td");
+
+        deleteEl.innerHTML = `<span class='setDelete-${member.id}' onclick=deleteStatus(${member.id}) data-id='${member.id}' >Delete this member</span>`
+        rowEl.appendChild(deleteEl)
     }
 
 }
@@ -130,7 +166,24 @@ function decodeJwtResponse(token) {
 
     return JSON.parse(jsonPayload);
 }
-
+async function deleteMemberStatus(id) {
+    const response = await fetch(`https://taocanada.ca:8080/api/members/${id}`, {
+        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+        // mode: "cors", // no-cors, *cors, same-origin
+        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        // credentials: "same-origin", // include, *same-origin, omit
+        // headers: {
+        //     "Content-Type": "application/json",
+        // },
+        // redirect: "follow", // manual, *follow, error
+        // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        // body: JSON.stringify({
+        //     "id": id,
+        //     "status": status === 1 ? 0 : 1
+        // }) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
 async function updateMemberStatus(id, status) {
     const response = await fetch(`https://taocanada.ca:8080/api/members/active/${id}`, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
