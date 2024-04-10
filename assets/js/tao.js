@@ -73,7 +73,7 @@ async function updateStatus(id) {
 async function deleteStatus(id) {
     debugger
     console.log(id)
-    deleteMemberStatus(userid).then((data) => {
+    deleteMemberStatus(id).then((data) => {
         console.log(data)
         getMembers(token.trim().substring(6)).then((data) => {
             document.querySelector("#membersTpl").innerHTML = ''
