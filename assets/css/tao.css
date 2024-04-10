@@ -224,6 +224,12 @@ body {
             border-bottom: none;
         }
     }
+
+    .portal-btn {
+        align-items: center;
+        padding: 5px 15px 7px 15px;
+        border-radius: 50px;
+    }
 }
 
 .login {
