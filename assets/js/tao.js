@@ -73,9 +73,10 @@ async function updateStatus(id) {
 async function deleteStatus(id) {
     debugger
     console.log(id)
-    deleteMemberStatus(id).then((data) => {
+    const token = document.cookie.split(';').find(value => value.includes('token'))
+
+    deleteMemberStatus(id, token.trim().substring(6)).then((data) => {
         console.log(data)
-        const token = document.cookie.split(';').find(value => value.includes('token'))
 
         getMembers(token.trim().substring(6)).then((data) => {
             document.querySelector("#membersTpl").innerHTML = ''
@@ -168,15 +169,16 @@ function decodeJwtResponse(token) {
 
     return JSON.parse(jsonPayload);
 }
-async function deleteMemberStatus(id) {
+async function deleteMemberStatus(id, token) {
     const response = await fetch(`https://taocanada.ca:8080/api/members/${id}`, {
         method: "DELETE", // *GET, POST, PUT, DELETE, etc.
         // mode: "cors", // no-cors, *cors, same-origin
         // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         // credentials: "same-origin", // include, *same-origin, omit
-        // headers: {
-        //     "Content-Type": "application/json",
-        // },
+        headers: {
+            "Content-Type": "application/json",
+            token: token
+        },
         // redirect: "follow", // manual, *follow, error
         // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         // body: JSON.stringify({
