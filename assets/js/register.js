@@ -1,9 +1,8 @@
 
 const requiredFields = [
     "name",
-    "address",
     "phone",
-    "employer",
+
     "status",
     "photo",
     "emergency",
@@ -21,6 +20,10 @@ const datesFields = [
     "dateWelcomed",
     "dateInitiated"
 ]
+const notRequiredFields = [
+    "employer",
+    "address"
+]
 let inputFileInvalid = false;
 function checkForms() {
     document.querySelector('button[type="submit"]').disabled = true;
@@ -37,7 +40,7 @@ function checkForms() {
     if ([valid, inputFileInvalid, !!document.querySelector('#dateArrived').value].some(v => v)) {
 
         const data = new FormData();
-        [...requiredFields, 'email'].filter(v => v !== 'col' && v !== 'photo').forEach(v => {
+        [...requiredFields, ...notRequiredFields, 'email'].filter(v => v !== 'col' && v !== 'photo').forEach(v => {
             data.append(v, document.querySelector('#' + v).value);
         })
         datesFields.filter(k => k).forEach(k => {
